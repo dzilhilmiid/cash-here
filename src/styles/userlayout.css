@@ -1,0 +1,253 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 300px;
+    min-width: 300px;
+    flex-shrink: 0;
+
+    background-color: var(--primary);
+    color: white;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    margin-bottom: 60px;
+}
+
+.logo h1 {
+    font-size:30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.sidebar nav ul {
+    font-size: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-decoration: none;
+    color: #cbd5e1;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: rgba(255,255,255,0.15) ;
+    color: white;
+}
+
+.sidebar nav ul li a:active {
+    background-color: rgba(255,255,255,0.15) ;
+    color: white;
+}
+
+.main-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    height: 80px;
+    background-color: var(--white);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.searchbox {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.searchbox input {
+    width: 400px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.searchbox button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+
+    cursor: pointer;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s ease;
+}
+
+.searchbox:focus-within {
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.searchbox button:hover {
+    background-color: var(--primary);
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.notification {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--white);
+    transition: 0.2s;
+}
+
+.notification:hover {
+    background: var(--primary);
+}
+
+.profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+.dropdown {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 180px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.profile:hover .dropdown {
+    display: flex;
+}
+
+.dropdown a,
+.logout-btn {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dropdown a:hover,
+.logout-btn:hover {
+    background: #f3f4f6;
+}
+
+.logout-btn {
+    color: #ef4444;
+    font-weight: 500;
+}
+
+.content {
+    padding: 24px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        padding: 0 16px;
+    }
+
+    .searchbox {
+        width: 220px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .topbar {
+        flex-direction: column;
+        height: auto;
+        padding: 12px;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .topbar-left,
+    .topbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .searchbox {
+        width: 100%;
+    }
+}
